@@ -51,6 +51,12 @@ $( document ).ready(function() {
 	);
 
 	meeting.onRemoteVideo(function(stream, participantID) {
+			// console.log(stream.getVideoTracks());
+			// console.log(participantID);
+			// stream.onactive = function (e) {
+	  //           console.log(stream.mimeType);
+	  //           // socket.emit('videochatStreaming', {participantID: participantID, stream:e.data});
+   //        	}
 	        addRemoteVideo(stream, participantID);
 	    }
 	);

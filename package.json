@@ -17,9 +17,15 @@
     "author": "lucaslouca",
     "license": "MIT",
     "dependencies": {
-        "node-static": "~0.7.1",
-        "socket.io": "~0.9.16",
+        "bcrypt": "^4.0.1",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "ejs": "~1.0.0",
         "express": "~3.4.0",
-        "ejs": "~1.0.0"
+        "jwt-simple": "^0.5.6",
+        "moment": "^2.25.1",
+        "mysql": "^2.18.1",
+        "node-static": "~0.7.1",
+        "socket.io": "~0.9.16"
     }
 }

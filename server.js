@@ -12,17 +12,21 @@ var path = require('path');
 
 var serverPort = process.env.OPENSHIFT_NODEJS_PORT || 1337
 var serverIpAddress = process.env.OPENSHIFT_NODEJS_IP || 'localhost'
-var socketIoServer = '192.168.0.28';
+var socketIoServer = '192.168.0.22';
 
 ////////////////////////////////////////////////
 // SETUP SERVER
 ////////////////////////////////////////////////
 
 var app = express();
+const cors = require("cors");
+
+require('dotenv').config();
 require('./router')(app, socketIoServer);
 
 // Static content (css, js, .png, etc) is placed in /public
 app.use(express.static(__dirname + '/public'));
+app.use(cors());
 
 // Location of our views
 app.set('views',__dirname + '/views');
@@ -83,9 +87,17 @@ io.sockets.on('connection', function (socket){
 	    socket.broadcast.to(socket.room).emit('chatMessage', msg);
 	});
 
+	socket.on('videochatStreaming', function (stream) {
+		console.log("videochatStreaming: ("+socket.room+") "+stream.participantID);
+	});
+
     // Setup a communication channel (namespace) to communicate with a given participant (participantID)
     function configNameSpaceChannel(participantID) {
         var socketNamespace = io.of('/'+participantID);
+
+        socket.on('videochatStreaming', function (stream) {
+			console.log("videochatStreaming: ("+socket.room+") "+stream.participantID);
+		});
 
         socketNamespace.on('connection', function (socket){
             socket.on('message', function (message) {
