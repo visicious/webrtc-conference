@@ -22,8 +22,9 @@ const getAll = () => {
 
 const insert = (newRow) => {
 	return new Promise((resolve, reject) => {
-		db.query('INSERT INTO usuarios (nombre, pass, usuario, email)',[newRow.nombre, newRow.pass, newRow.usuario, newRow.email], (err, result) => {
+		db.query('INSERT INTO usuarios (nombre, pass, usuario, email) VALUES (?,?,?,?)',[newRow.nombre, newRow.pass, newRow.usuario, newRow.email], (err, result) => {
 			if (err) {
+				console.log(err);
 				reject(err);
 			}
 			if (result) {

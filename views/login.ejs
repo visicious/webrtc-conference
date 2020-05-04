@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name='description' content='Sala de conferencia en WebRTC' />
+		<meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1'>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="/css/room.css" media="screen" />
+		<script src='/js/login.js'></script>
+		<title>Ingreso</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class ="row">
+				<form id="login-form" class="offset-3 col-6" method="post" action="/api/login">
+				  	<div class="form-group">
+					    <label for="email">Email:</label>
+					    <input type="email" class="form-control" id="email">
+				  	</div>
+				  	<div class="form-group">
+					    <label for="pwd">Password:</label>
+					    <input type="password" class="form-control" id="pass">
+				  	</div>
+				  	<button type="submit" class="btn btn-primary">Enviar</button>
+				</form>
+			</div>
+		</div>
+	</body>
+
+</html>

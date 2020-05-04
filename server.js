@@ -20,13 +20,20 @@ var socketIoServer = '192.168.0.22';
 
 var app = express();
 const cors = require("cors");
+app.use(cors());
+app.use(express.json({
+  inflate: true,
+  reviver: null,
+  strict: false,
+  type: 'application/json',
+  verify: undefined
+}));
 
 require('dotenv').config();
 require('./router')(app, socketIoServer);
 
 // Static content (css, js, .png, etc) is placed in /public
 app.use(express.static(__dirname + '/public'));
-app.use(cors());
 
 // Location of our views
 app.set('views',__dirname + '/views');
