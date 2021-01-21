@@ -27,6 +27,6 @@
         "moment": "^2.25.1",
         "mysql": "^2.18.1",
         "node-static": "~0.7.1",
-        "socket.io": "~0.9.16"
+        "socket.io": "~2.4.0"
     }
 }
